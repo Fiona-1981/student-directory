@@ -1,6 +1,6 @@
 # student_count = 11
 # First, we print the list of students
-students = [
+students_old = [
   {name: "Dr. Hannibal Lecter", cohort: :november},
   {name: "Darth Vader", cohort: :november},
   {name: "Nurse Ratched", cohort: :november},
@@ -30,6 +30,25 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
+def input_students
+  puts "Please enter the names of the students"
+  puts "To finish, just hit return twice"
+
+  students = []
+
+  name = gets.chomp
+
+  while !name.empty? do
+    students << {name: name, cohort: :november}
+    puts "Now we have #{students.count} students"
+    name = gets.chomp
+  end
+
+  students
+
+end
+
+students = input_students
 print_header
 print(students)
 print_footer(students)
