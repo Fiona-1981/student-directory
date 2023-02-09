@@ -25,6 +25,7 @@ def print(students)
   end
 end
 
+
 # Finally, we print the total number of students
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
@@ -32,21 +33,29 @@ end
 
 def input_students
   puts "Please enter the names of the students"
+  name = gets.chomp
+  puts "Please enter the cohort"
+  cohort = gets.chomp
   puts "To finish, just hit return twice"
 
   students = []
 
-  name = gets.chomp
+  
 
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: cohort}
+    if students.count == 1
+      puts "Now we have #{students.count} student"
+    elsif students.count > 1
     puts "Now we have #{students.count} students"
+    end
+    puts "Please enter the names of the students"
     name = gets.chomp
+    puts "Please enter the cohort"
+    cohort = gets.chomp
+    puts "To finish, just hit return twice"
+    end
   end
-
-  students
-
-end
 
 students = input_students
 print_header
